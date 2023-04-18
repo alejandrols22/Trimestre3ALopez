@@ -1,7 +1,7 @@
 div {
     width: 150px;
     height: 150px;
-    background-color: rgb(255, 230, 0);
+    background-color: rgb(233, 230, 54);
     position: relative;
   }
   body {
@@ -9,17 +9,24 @@ div {
     justify-content: center;
     font-family: monospace;
 }
+
+.fila > div {
+    display: inline-block;
+    width: 14px;
+    height: 1px; /* Ajusta este valor */
+    text-align: center;
+  }
 .fila {
     display: flex;
     text-align: center;
     font-size: 14px;
-    line-height: 0.3;
+    line-height: 10px;
   }
   
   span {
     display: inline-block;
     width: 14px;
-    line-height: 0.8; /* Ajusta este valor */
+    line-height: 0.5; /* Ajusta este valor */
   }
   
 /* Esquina superior izquierda */
