@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  min-height: 100%; /* Asegurar que el body tenga una altura mínima del 100% de la ventana gráfica */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-image: url("intro-background.jpg"); /* Mover la imagen de fondo al body */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex; /* Establecer el body como un contenedor flex */
+  flex-direction: column; /* Distribuir los hijos del body en una columna */
+}
+
+header {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 10px;
+  font-weight: bold; /* Nombres en negrita */
+  padding: 8px 12px; /* Agregar padding alrededor de los nombres */
+  border-radius: 5px; /* Filos redondeados */
+  transition: background-color 0.3s; /* Transición al cambiar el color de fondo */
+}
+
+nav a:hover {
+  color: #fff;
+  background-color: #a4adb4; /* Cambiar el color de fondo al pasar el mouse */
+}
+
+main {
+  flex: 1; /* Hacer que el main ocupe todo el espacio disponible entre el header y el footer */
+  padding: 20px;
+}
+
+
+.intro {
+  min-height: 100%; /* Cambiar height a min-height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.intro h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 1.3em;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #0076d6;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0058a3;
+}
+
+footer {
+  position: fixed; /* Hacer que el footer tenga una posición fija en la pantalla */
+  bottom: 0; /* Alinear el footer al borde inferior de la pantalla */
+  width: 100%; /* Hacer que el footer tenga un ancho del 100% */
+  padding: 20px;
+  text-align: center;
+ 
+}
+
+.footer-text {
+  margin-top: 0; /* Eliminar el margen superior adicional */
+}
+
+#macro-chart-container {
+  height: 300px;
+  width: 40%;
+  float: right;
+  margin-top: 20px;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+.form-group input[type="number"],
+.form-group select {
+  display: inline-block;
+  width: 70%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group button[type="submit"] {
+  margin-left: 100px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.testimonial-left {
+  flex-direction: row-reverse;
+}
+
+.testimonial-right {
+  flex-direction: row;
+}
+
+.testimonial img {
+  max-width: 200px;
+  max-height: 200px;
+  margin-right: 20px;
+}
+
+.testimonial figcaption {
+  font-style: italic;
+}
