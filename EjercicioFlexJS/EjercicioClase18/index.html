@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pirámide</title>
+    <title>Posicionamiento de divs</title>
+</head>
+
+<body>
+
+    <div id="button">
+        <input id="button" type="button" value="Crear Pirámide" onclick="esquinaInput()">
+    </div>
+
+
+    <div id="esquina1">1</div>
+    <div id="esquina2">2</div>
+    <div id="esquina3">3</div>
+    <div id="esquina4">4</div>
+    <div id="centro">5</div>
+    
+    <script>
+        const cambiarColor = (piramideDiv) => {
+  let colorSeleccionado = prompt("Elige un color para la pirámide (a: azul, b: rojo, c: verde)");
+
+  switch (colorSeleccionado) {
+    case "a":
+      piramideDiv.style.color = "blue";
+      break;
+    case "b":
+      piramideDiv.style.color = "red";
+      break;
+    case "c":
+      piramideDiv.style.color = "green";
+      break;
+    default:
+      alert("Opción no válida");
+      break;
+  }
+};
+
+const crearPiramide = (esquina) => {
+  const piramideDiv = document.createElement("div");
+  piramideDiv.id = "piramide";
+  piramideDiv.style.marginTop = "100px"; // Agregar margen superior
+
+  const piramideContenedor = document.createElement("div");
+  piramideContenedor.style.position = "absolute";
+  piramideContenedor.style.width = "100%";
+  piramideContenedor.style.height = "100%";
+  piramideContenedor.style.display = "flex";
+  piramideContenedor.style.justifyContent = "center";
+  piramideContenedor.style.alignItems = "center";
+
+  let numFilas = 3;
+  let numColumnas = 3;
+
+  let columnaInicio = 10;
+  let anchoPiramide = 2 * numFilas - 1;
+  let anchoTotal = columnaInicio + anchoPiramide;
+
+  for (let i = 1; i <= numFilas; i++) {
+    let fila = document.createElement("div");
+    fila.classList.add("fila");
+
+    for (let j = 0; j < anchoTotal; j++) {
+      const bloque = document.createElement("div");
+      bloque.style.lineHeight = "0"; // Elimina los márgenes adicionales
+
+      if (j < columnaInicio - 1 + numColumnas - i && j > columnaInicio - 1 - (numColumnas - i)) {
+        bloque.innerHTML = " ";
+      } else if (j >= columnaInicio - 1 + numColumnas - i && j <= columnaInicio - 1 + numColumnas + i - 2) {
+        if (i === 1 && j === columnaInicio - 1) {
+          bloque.innerHTML = "*";
+        } else if (i === numFilas && (j === columnaInicio - 1 || j === columnaInicio - 1 + 2 * i - 2)) {
+          bloque.innerHTML = "*";
+        } else {
+          bloque.innerHTML = "o";
+        }
+      } else {
+        bloque.innerHTML = " ";
+      }
+
+      fila.appendChild(bloque);
+    }
+
+    piramideContenedor.appendChild(piramideDiv);
+
+    piramideDiv.appendChild(fila);
+  }
+  document.getElementById(esquina).appendChild(piramideContenedor);
+  document.getElementById(esquina).appendChild(piramideDiv);
+  cambiarColor(piramideDiv); // Llama a la función cambiarColor
+};
+
+  const esquinaInput = () => {
+    let esquina = prompt("En qué esquina quieres crear la pirámide? (1: superior izquierda, 2: superior derecha, 3: inferior izquierda, 4: inferior derecha, 5: centro)");
+
+    switch (esquina) {
+      case "1":
+        crearPiramide("esquina1");
+        break;
+      case "2":
+        crearPiramide("esquina2");
+        break;
+      case "3":
+        crearPiramide("esquina3");
+        break;
+      case "4":
+        crearPiramide("esquina4");
+        break;
+        case "5":
+        crearPiramide("centro");
+        break;
+      default:
+        alert("Opción no válida");
+        break;
+    }
+  };
+    </script>
+
+</body>
+
+</html>

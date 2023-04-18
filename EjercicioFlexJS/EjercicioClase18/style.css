@@ -1,0 +1,70 @@
+div {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 230, 0);
+    position: relative;
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+}
+.fila {
+    display: flex;
+    text-align: center;
+    font-size: 14px;
+    line-height: 0.3;
+  }
+  
+  span {
+    display: inline-block;
+    width: 14px;
+    line-height: 0.8; /* Ajusta este valor */
+  }
+  
+/* Esquina superior izquierda */
+#esquina1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Esquina superior derecha */
+  #esquina2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  /* Esquina inferior izquierda */
+  #esquina3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* Esquina inferior derecha */
+  #esquina4 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Div del centro */
+  #centro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #button {
+    top: 50%;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+  }
+
+ 
