@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirámide</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            font-family: monospace;
+        }
+        .fila {
+            display: block;
+            text-align: center;
+            width: 80ch;
+        }
+    </style>
+</head>
+<body>
+    <div id="piramide"></div>
+
+    <script>
+        const crearPiramide = () => {
+            let piramide = "";
+            let numFilas = 10;
+            let numColumnas = 5;
+            let columnaInicio = 20;
+            let anchoPiramide = 2 * numFilas - 1;
+            let anchoTotal = columnaInicio + anchoPiramide;
+
+            for (let i = 1; i <= numFilas; i++) {
+                let fila = document.createElement("div");
+                fila.classList.add("fila");
+                let espaciosAntes = (numColumnas - 1) / 2 - i + 1 + columnaInicio;
+                let espaciosDespues = anchoTotal - espaciosAntes - 2 * i + 1;
+
+                for (let j = 0; j < espaciosAntes; j++) {
+                    fila.innerHTML += "&nbsp;";
+                }
+
+                for (let j = 0; j < 2 * i - 1; j++) {
+                    if (i === 1 && j === 0) {
+                        fila.innerHTML += "*";
+                    } else if (i === numFilas && (j === 0 || j === 2 * i - 2)) {
+                        fila.innerHTML += "*";
+                    } else {
+                        fila.innerHTML += "o";
+                    }
+                }
+
+                for (let j = 0; j < espaciosDespues; j++) {
+                    fila.innerHTML += "&nbsp;";
+                }
+
+                document.getElementById("piramide").appendChild(fila);
+            }
+        };
+
+        crearPiramide();
+    </script>
+</body>
+</html>

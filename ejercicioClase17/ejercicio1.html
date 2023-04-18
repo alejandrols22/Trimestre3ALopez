@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Imprimir números</title>
+    <style>
+        body {
+            font-family: monospace;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <input id="num1" type="number" placeholder="Primer número">
+    <input id="num2" type="number" placeholder="Segundo número">
+    <button onclick="imprimirNumeros()">Imprimir</button>
+    <script>
+        function imprimirNumeros() {
+            const num1 = document.getElementById('num1').value;
+            const num2 = document.getElementById('num2').value;
+            let result = '';
+            let count = 0;
+
+            for (let i = 0; i < num2; i++) {
+                if (count < 8) {
+                    result += num1;
+                    count++;
+                } else {
+                    result += '\n' + num1;
+                    count = 1;
+                }
+            }
+
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write('<pre>' + result + '</pre>');
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>
