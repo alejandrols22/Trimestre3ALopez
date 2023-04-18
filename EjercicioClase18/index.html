@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posicionamiento de divs</title>
+    <style>
+      /* Estilo general para todos los divs */
+      div {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+      }
+      
+      /* Esquina superior izquierda */
+      #esquina1 {
+        top: 0;
+        left: 0;
+      }
+      
+      /* Esquina superior derecha */
+      #esquina2 {
+        top: 0;
+        right: 0;
+      }
+      
+      /* Esquina inferior izquierda */
+      #esquina3 {
+        bottom: 0;
+        left: 0;
+      }
+      
+      /* Esquina inferior derecha */
+      #esquina4 {
+        bottom: 0;
+        right: 0;
+      }
+      
+      /* Div del centro */
+      #centro {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="esquina1"></div>
+    <div id="esquina2"></div>
+    <div id="esquina3"></div>
+    <div id="esquina4"></div>
+    <div id="centro"></div>
+  </body>
+</html>
