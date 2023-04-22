@@ -1,6 +1,7 @@
 // Reemplaza estas variables con las tuyas
 const clientId = "ce09f6f3a5d141a09528f04f5d135076";
 const clientSecret = "92f58646068f4720822ff4e75c6fc87d";
+const audioPlayers = [];
 
 const genres = [
     { id: "pop", name: "Pop" },
@@ -83,21 +84,46 @@ function displaySongs(song1, song2) {
 }
 
 function createSongCard(song) {
+    const audio = new Audio(song.preview_url);
+    audioPlayers.push(audio);
+
     const songCard = $("<div>").addClass("song-card");
     const songImage = $("<img>")
         .addClass("song-image")
         .attr("src", song.album.images[0].url);
     const songTitle = $("<h3>").text(song.name);
     const songArtist = $("<p>").text(song.artists[0].name);
+    const playButton = $("<button>")
+        .addClass("play-button")
+        .text("Reproducir");
+    const stopButton = $("<button>")
+        .addClass("stop-button")
+        .text("Detener");
+
+    
+
+    playButton.on("click", (event) => {
+        event.stopPropagation();
+        audio.play();
+    });
+
+    stopButton.on("click", (event) => {
+        event.stopPropagation();
+        audio.pause();
+        audio.currentTime = 0;
+    });
 
     songCard.append(songImage);
     songCard.append(songTitle);
     songCard.append(songArtist);
+    songCard.append(playButton);
+    songCard.append(stopButton);
 
     return songCard;
 }
 
 function checkAnswer(selectedSong, otherSong) {
+    stopAllAudioPlayers();
     if (selectedSong.popularity > otherSong.popularity) {
         const currentStreak = parseInt($("#streak-count").text(), 10);
         $("#streak-count").text(currentStreak + 1);
@@ -115,6 +141,13 @@ function startGame() {
     const selectedGenre = $("#genre-select").val();
     console.log("Género seleccionado:", selectedGenre);
     getSongsByGenre(selectedGenre);
+}
+
+function stopAllAudioPlayers() {
+    audioPlayers.forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
 }
 // Cuando el documento esté listo
 $(document).ready(() => {
