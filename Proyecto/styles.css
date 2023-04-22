@@ -88,7 +88,7 @@ main {
 }
 
 footer {
-  position: fixed; /* Hacer que el footer tenga una posición fija en la pantalla */
+ 
   bottom: 0; /* Alinear el footer al borde inferior de la pantalla */
   width: 100%; /* Hacer que el footer tenga un ancho del 100% */
   padding: 20px;
@@ -141,7 +141,11 @@ form {
   border-radius: 4px;
   cursor: pointer;
 }
-
+#testimonio {
+  border-radius: 50%;
+  
+  object-fit: cover; /* para evitar que la imagen se deforme */
+}
 
 .testimonials-container {
   display: flex;
@@ -150,6 +154,7 @@ form {
 
 .testimonial {
   display: flex;
+  flex-wrap: wrap; /* Permitir que los elementos se ajusten en la misma línea */
   margin-bottom: 20px;
 }
 
@@ -159,14 +164,24 @@ form {
 
 .testimonial-right {
   flex-direction: row;
+  
 }
 
 .testimonial img {
   max-width: 200px;
   max-height: 200px;
   margin-right: 20px;
+  margin-bottom: 0; /* Eliminar el margen inferior de la imagen */
 }
 
 .testimonial figcaption {
   font-style: italic;
+  font-weight: bold; /* Agregar negrita al texto */
+  margin-bottom: 0; /* Eliminar el margen inferior del texto */
+}
+
+.musculo img {
+  max-width: 20% ;
+  max-height: 20% ;
+
 }
