@@ -51,7 +51,7 @@ async function getSongsByGenre(genre) {
     );
 
     const tracksData = await tracksResponse.json();
-    const filteredTracks = tracksData.items.filter(item => item.track.popularity > 80);
+    const filteredTracks = tracksData.items.filter(item => item.track.popularity > 50);
 
     const randomIndex1 = Math.floor(Math.random() * filteredTracks.length);
     let randomIndex2 = Math.floor(Math.random() * filteredTracks.length);
