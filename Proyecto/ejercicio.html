@@ -6,54 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="script.js"></script>
-    <style>
-        #image-map {
-          position: relative;
-          display: block;
-          width: 100%;
-          height: auto;
-        }
-        #image-map img {
-          width: 100%;
-          height: auto;
-        }
-        #image-map .tooltip {
-          position: absolute;
-          z-index: 100;
-          display: none;
-          background-color: rgba(0, 0, 0, 0.8);
-          color: #fff;
-          padding: 10px;
-          border-radius: 5px;
-        }
-        #image-map .tooltip:after {
-          position: absolute;
-          content: "";
-          border-width: 10px;
-          border-style: solid;
-          border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
-          bottom: -20px;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        #image-map .tooltip.active {
-          display: block;
-        }
-        #image-map .area {
-          position: absolute;
-          cursor: pointer;
-          opacity: 0.5;
-          transition: opacity 0.3s;
-        }
-        #image-map .area:hover {
-          opacity: 1;
-        }
-      </style>
     <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
+  <style>
+#muscle-image-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#muscle-image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+#content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#exercise-list-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    font-size: 18px;
+    line-height: 2;
+}
+
+footer {
+    background: #35424a;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+
+  </style>
 </head>
 <body>
-
     <header>
         <nav>
           <a href="index.html">Introducción</a>
@@ -68,75 +72,79 @@
       <main>
         <h1>Ejercicio</h1>
 
-       
-<form>
-    <div class="form-group">
-      <label for="musculo">Músculo a ejercitar:</label>
-      <select name="musculo" id="musculo">
-          <option value="cuerpo">Cuerpo</option>
-        <option value="biceps">Bíceps</option>
-        <option value="cuadriceps">Cuádriceps</option>
-        <option value="deltoides">Deltoides</option>
-        <option value="pectoral">Pectoral</option>
-        <option value="soleo">Sóleo</option>
-        <option value="tibial">Tibial</option>
-      </select>
-    </div>
-  </form>
+        <form>
+            <div class="form-group">
+              <label for="musculo">Músculo a ejercitar:</label>
+              <select name="musculo" id="musculo">
+                  <option value="cuerpo">Cuerpo</option>
+                <option value="biceps">Bíceps</option>
+                <option value="cuadriceps">Cuádriceps</option>
+                <option value="deltoides">Deltoides</option>
+                <option value="pectoral">Pectoral</option>
+                <option value="soleo">Sóleo</option>
+                <option value="tibial">Tibial</option>
+              </select>
+            </div>
+          </form>
 
-  <div id="muscle-image-container"></div>
-</main>
+          <div id="content-container">
+            <div id="muscle-image-container"></div>
+            <div id="exercise-list-container">
+              <h2>Ejercicios específicos:</h2>
+              <ul id="exercise-list"></ul>
+            </div>
+          </div>
+      </main>
 
+    <footer>
+      <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+      const select = document.querySelector('select[name="musculo"]');
+      const container = document.querySelector('#muscle-image-container');
+      const exerciseListContainer = document.querySelector('#exercise-list-container');
+      const exerciseList = document.querySelector('#exercise-list');
 
-<footer>
-  <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
-</footer>
-<script>
-  const select = document.querySelector('select[name="musculo"]');
-  const container = document.querySelector('#muscle-image-container');
+      const exercises = {
+        biceps: ['Curl de bíceps', 'Curl martillo', 'Curl concentrado'],
+        cuadriceps: ['Sentadillas', 'Zancadas', 'Prensa de piernas'],
+        deltoides: ['Elevaciones laterales', 'Press militar', 'Elevaciones frontales'],
+        pectoral: ['Press de banca', 'Aperturas con mancuernas', 'Flexiones'],
+        soleo: ['Elevaciones de pantorrilla sentado', 'Elevaciones de pantorrilla de pie'],
+        tibial: ['Curl de tibial']
+      };
 
-  select.addEventListener('change', (event) => {
-    const value = event.target.value;
-    container.innerHTML = '';
+      function handleMuscleChange(event) {
+        const value = event.target.value;
+        container.innerHTML = '';
+        exerciseList.innerHTML = '';
 
-    if (value === 'biceps') {
-      const img = document.createElement('img');
-      img.src = 'biceps.png';
-      img.alt = 'Imagen de bíceps';
-      container.appendChild(img);
-  } else if (value === 'cuerpo') {
-      const img = document.createElement('img');
-      img.src = 'download.png';
-      img.alt = 'Imagen de cuerpo';
-      container.appendChild(img);
-    } else if (value === 'cuadriceps') {
-      const img = document.createElement('img');
-      img.src = 'cuadriceps.png';
-      img.alt = 'Imagen de cuádriceps';
-      container.appendChild(img);
-    } else if (value === 'deltoides') {
-      const img = document.createElement('img');
-      img.src = 'deltoides.png';
-      img.alt = 'Imagen de deltoides';
-      container.appendChild(img);
-    } else if (value === 'pectoral') {
-      const img = document.createElement('img');
-      img.src = 'pectoral.png';
-      img.alt = 'Imagen de pectoral';
-      container.appendChild(img);
-    } else if (value === 'soleo') {
-      const img = document.createElement('img');
-      img.src = 'soleo.png';
-      img.alt = 'Imagen de sóleo';
-      container.appendChild(img);
-    } else if (value === 'tibial') {
-      const img = document.createElement('img');
-      img.src = 'tibial.png';
-      img.alt = 'Imagen de tibial';
-      container.appendChild(img);
-    }
-  });
-</script>
-        
+        if (value !== 'cuerpo') {
+          const img = document.createElement('img');
+          img.src = `${value}.png`;
+          img.alt = `Imagen de ${value}`;
+          container.appendChild(img);
+
+          const exerciseItems = exercises[value];
+
+          for (const exercise of exerciseItems) {
+            const li = document.createElement('li');
+            li.textContent = exercise;
+            exerciseList.appendChild(li);
+          }
+        } else {
+          const img = document.createElement('img');
+          img.src = 'download.png';
+          img.alt = 'Imagen de cuerpo';
+          container.appendChild(img);
+        }
+      }
+
+      select.addEventListener('change', handleMuscleChange);
+
+      // Esto inicializa la lista y la imagen en función del valor seleccionado por defecto
+      handleMuscleChange({ target: select });
+    </script>
+
 </body>
 </html>

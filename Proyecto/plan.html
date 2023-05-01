@@ -45,9 +45,44 @@
                 <option value="gain-weight">Ganar Peso</option>
             </select>
 
-            <button type="submit">Calcular</button>
+            <label for="preferred-proteins">Proteínas preferidas:</label>
+            <div id="preferred-proteins" multiple>
+              <!-- Las opciones se agregarán automáticamente con JavaScript -->
+            </div>
+          
+            <label for="preferred-carbs">Carbohidratos preferidos:</label>
+            <div id="preferred-carbs" multiple>
+              <!-- Las opciones se agregarán automáticamente con JavaScript -->
+            </div>
+          
+            <label for="preferred-fats">Grasas preferidas:</label>
+            <div id="preferred-fats" multiple>
+              <!-- Las opciones se agregarán automáticamente con JavaScript -->
+            </div>
+          
+            <input type="submit" value="Calcular">
+            
         </form>
+        <label for="meals">Número de comidas al día:</label>
+        <input type="number" id="meals" name="meals" min="1" max="8" required>
 
+        <h3>Preferencias de alimentos</h3>
+        <label for="preferred-proteins">Proteínas:</label>
+        <select id="preferred-proteins" name="preferred-proteins" multiple required>
+          <!-- Aquí se agregarán las opciones de proteínas -->
+        </select>
+
+        <label for="preferred-carbs">Carbohidratos:</label>
+        <select id="preferred-carbs" name="preferred-carbs" multiple required>
+          <!-- Aquí se agregarán las opciones de carbohidratos -->
+        </select>
+
+        <label for="preferred-fats">Grasas:</label>
+        <select id="preferred-fats" name="preferred-fats" multiple required>
+          <!-- Aquí se agregarán las opciones de grasas -->
+        </select>
+
+        <button type="submit">Calcular</button>
         <div id="results" hidden>
             <h3>Resultados:</h3>
             <p>Proteínas: <span id="proteins">0</span>%</p>
@@ -61,6 +96,7 @@
         </div>
     </main>
 
+    
     <footer>
         <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
     </footer>

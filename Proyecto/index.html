@@ -10,13 +10,13 @@
 <body>
   <header>
     <nav>
-      <a href="index.html">Introducción</a>
+      <a href="index.html">Inicio</a>
       <a href="alimentacion.html">Alimentación</a>
       <a href="ejercicio.html">Planes de ejercicio</a>
       <a href="plan.html">Planes de dieta</a>
       <a href="testimonios.html">Testimonios</a>
       <a href="acerca.html">Acerca de nosotros</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="contacto.html">Acceso</a>
     </nav>
   </header>
   
@@ -28,7 +28,12 @@
       <a href="plan.html" class="cta-button">Explora nuestros planes</a>
     </section>
   </main>
-  
+  <?php
+      session_start();
+      if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
+        echo '<div id="mensaje-logueado">Bienvenido, usuario logueado.</div>';
+      }
+    ?>
   <footer>
     <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
   </footer>

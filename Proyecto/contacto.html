@@ -1,29 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      margin: 50px auto;
+      width: 500px;
+      text-align: center;
+    }
+
+    form {
+      display: none;
+    }
+
+    form.active {
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
 </head>
+
 <body>
-    <header>
-        <nav>
-          <a href="index.html">Introducción</a>
-          <a href="alimentacion.html">Alimentación</a>
-          <a href="ejercicio.html">Ejercicio</a>
-          <a href="plan.html">Planes de dieta y ejercicio</a>
-          <a href="testimonios.html">Testimonios</a>
-          <a href="acerca.html">Acerca de nosotros</a>
-          <a href="contacto.html">Contacto</a>
-        </nav>
-      </header>
+  <header>
+    <nav>
+      <a href="index.html">Introducción</a>
+      <a href="alimentacion.html">Alimentación</a>
+      <a href="ejercicio.html">Ejercicio</a>
+      <a href="plan.html">Planes de dieta y ejercicio</a>
+      <a href="testimonios.html">Testimonios</a>
+      <a href="acerca.html">Acerca de nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+  <?php if(isset($_SESSION['nombre'])): ?>
+  <h1>Bienvenido,
+    <?php echo $_SESSION['nombre']; ?>
+  </h1>
+  <p>Aquí va tu contenido personalizado que solo puedes ver si estás logueado.</p>
+  <form action="logout.php" method="post">
+    <input type="submit" name="logout" value="Cerrar sesión">
+  </form>
+  <?php else: ?>
+  <h1>Inicia sesión</h1>
+  <form action="login.php" method="post">
+    <label for="nombre">Nombre de usuario:</label>
+    <input type="text" name="nombre" required><br><br>
+    <label for="password">Contraseña:</label>
+    <input type="password" name="password" required><br><br>
+    <input type="submit" name="login" value="Iniciar sesión">
+  </form>
+  <br>
+  <button onclick="mostrarRegistro()">Registrarse</button>
+  <br>
+  <br>
+  <div id="registro" style="display: none;">
+    <h1>Registrarse</h1>
+    <form action="registro.php" method="post">
+      <label for="nombre">Nombre de usuario:</label>
+      <input type="text" name="nombre" required><br><br>
+      <label for="apellido">Apellido:</label>
+      <input type="text" name="apellido" required><br><br>
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" required><br><br>
+      <input type="submit" name="registrar" value="Registrarse">
+    </form>
+    <br>
+    <button onclick="ocultarRegistro()">Volver</button>
+  </div>
 
+  <script>
+    function mostrarRegistro() {
+      document.getElementById("registro").style.display = "block";
+    }
 
-      <footer>
-        <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
-      </footer>
+    function ocultarRegistro() {
+      document.getElementById("registro").style.display = "none";
+    }
+  </script>
+  <?php endif; ?>
+
+  <footer>
+    <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
+  </footer>
 </body>
+
 </html>
