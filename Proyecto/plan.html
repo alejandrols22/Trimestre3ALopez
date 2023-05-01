@@ -10,6 +10,8 @@
 <body>
     <header>
         <nav>
+          <a href="juego.html">Juego</a>
+          <a href="masinformacion.html">Mas informacion</a>
           <a href="index.html">Introducción</a>
           <a href="alimentacion.html">Alimentación</a>
           <a href="ejercicio.html">Ejercicio</a>
@@ -66,23 +68,11 @@
         <label for="meals">Número de comidas al día:</label>
         <input type="number" id="meals" name="meals" min="1" max="8" required>
 
-        <h3>Preferencias de alimentos</h3>
-        <label for="preferred-proteins">Proteínas:</label>
-        <select id="preferred-proteins" name="preferred-proteins" multiple required>
-          <!-- Aquí se agregarán las opciones de proteínas -->
-        </select>
+       
 
-        <label for="preferred-carbs">Carbohidratos:</label>
-        <select id="preferred-carbs" name="preferred-carbs" multiple required>
-          <!-- Aquí se agregarán las opciones de carbohidratos -->
-        </select>
+        
 
-        <label for="preferred-fats">Grasas:</label>
-        <select id="preferred-fats" name="preferred-fats" multiple required>
-          <!-- Aquí se agregarán las opciones de grasas -->
-        </select>
-
-        <button type="submit">Calcular</button>
+       
         <div id="results" hidden>
             <h3>Resultados:</h3>
             <p>Proteínas: <span id="proteins">0</span>%</p>
