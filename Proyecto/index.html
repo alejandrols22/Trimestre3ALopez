@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alimentación y Ejercicio</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en raya</title>
+    <link rel="stylesheet" href="juego.css">
+    <script defer src="juego.js"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="juego.html">Juego</a>
-      <a href="masinformacion.html">Mas informacion</a>
-      <a href="index.html">Introducción</a>
-      <a href="alimentacion.html">Alimentación</a>
-      <a href="ejercicio.html">Ejercicio</a>
-      <a href="plan.html">Planes de dieta y ejercicio</a>
-      <a href="testimonios.html">Testimonios</a>
-      <a href="acerca.html">Acerca de nosotros</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
-  
-  <main>
-    <section class="intro">
-      <h1>Bienvenido a nuestro sitio de Alimentación y Ejercicio</h1>
-      <p>Descubre cómo llevar una vida más saludable y activa con nuestros consejos de alimentación y ejercicio. ¡Empecemos juntos este camino hacia el bienestar! En nuestro sitio, encontrarás información valiosa sobre cómo mejorar tu alimentación, aumentar tu nivel de actividad física y mantener hábitos saludables a largo plazo.</p>
-      <p>Te ofrecemos una amplia variedad de planes de dieta y ejercicio adaptados a tus necesidades y objetivos. Además, podrás leer testimonios de personas que han transformado sus vidas gracias a nuestros programas. No esperes más, ¡comienza ahora mismo a disfrutar de una vida más saludable y feliz!</p>
-      <a href="plan.html" class="cta-button">Explora nuestros planes</a>
-    </section>
-  </main>
-  <?php
-      session_start();
-      if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) {
-        echo '<div id="mensaje-logueado">Bienvenido, usuario logueado.</div>';
-      }
-    ?>
-  <footer>
-    <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
-  </footer>
+    <h1>TA-TE-TI</h1>
+    <header>
+        <nav>
+          <a href="index.html">Juego</a>
+          <a href="masinformacion.html">Mas informacion</a>
+          <a href="index.html">Inicio</a>
+          <a href="alimentacion.html">Alimentación</a>
+          <a href="ejercicio.html">Planes de ejercicio</a>
+          <a href="plan.html">Planes de dieta</a>
+          <a href="testimonios.html">Testimonios</a>
+          <a href="acerca.html">Acerca de nosotros</a>
+          <a href="contacto.html">Acceso</a>
+        </nav>
+      </header>
+
+<div class="container">
+    <div class="grid">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+</div>
+<div class="reset-btn-container">
+    <button id="reset-btn" style="display: none;">Volver a jugar</button>
+</div>
+</div>
+<div class="info-btn-container">
+<button id="info-btn">Mostrar información</button>
+</div>
+
 </body>
 </html>
