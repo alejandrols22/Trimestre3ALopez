@@ -60,6 +60,8 @@ window.onload = function() {
 
   if (userName) {
     userNameDisplay.innerHTML = userName;
+  } else {
+    userNameDisplay.innerHTML = "Sin identificar";
   }
 
 
