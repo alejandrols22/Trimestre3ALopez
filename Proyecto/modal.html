@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <header>
+            <nav>
+              <span id="userNameDisplay" style="position:absolute; top:0; left:0;"></span>
+              <a href="index.html">Juego y mas informacion</a>
+              <a href="inicio.html">Inicio</a>
+              <a href="xml.html">XML</a>
+              <a href="modal.html">Modal</a>
+              <a href="planificacion.html">Planes</a>
+              <a href="progreso.html">Progreso</a>
+              <a href="ajustes.html">Ajustes</a>
+              <button class="toggle-button" onclick="toggleDarkMode()">
+                <img src="./imagenes/dia.png" alt="Modo día" id="sun-icon">
+                <img src="./imagenes/noche.png" alt="Modo noche" id="moon-icon">
+              </button>
+            </nav>
+            </header>
+    </header>
+
+    <!-- Botón que activa el modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Mostrar detalles del alumno
+  </button>
+  
+  <!-- El modal -->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalles del alumno</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Alumno: Alejandro López Sepúlveda</p>
+          <p>Curso: 1ºDAW CENEC Tarde</p>
+          <!-- Añade aquí los requisitos -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script defer src="./js/juego.js"></script>
+    <script defer src="./js/scripts.js"></script>
+    <script defer src="./js/ajustes.js"></script>
+    
+</body>
+</html>

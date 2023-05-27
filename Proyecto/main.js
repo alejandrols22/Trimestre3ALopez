@@ -1,1 +1,0 @@
-// Aquí puedes agregar funcionalidad de JavaScript si es necesario

@@ -4,75 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
-  <script defer src="main.js"></script>
-  <style>
-#muscle-image-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#muscle-image-container img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 24px;
-}
-
-#content-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#exercise-list-container {
-  flex: 1;
-  min-width: 300px;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-li {
-    font-size: 18px;
-    line-height: 2;
-}
-
-footer {
-    background: #35424a;
-    color: #ffffff;
-    text-align: center;
-    padding: 30px;
-    margin-top: 30px;
-}
-
-
-  </style>
+    <title>Document</title>
+    
+    
+ 
 </head>
 <body>
     <header>
       <nav>
-        <a href="index.html">Juego</a>
-        <a href="masinformacion.html">Mas informacion</a>
+        <span id="userNameDisplay" style="position:absolute; top:0; left:0;"></span>
+        <a href="index.html">Juego y mas informacion</a>
         <a href="inicio.html">Inicio</a>
-        <a href="alimentacion.html">Alimentación</a>
-        <a href="ejercicio.html">Planes de ejercicio</a>
-        <a href="plan.html">Planes de dieta</a>
-        <a href="testimonios.html">Testimonios</a>
-        <a href="acerca.html">Acerca de nosotros</a>
-        <a href="contacto.html">Acceso</a>
+        <a href="xml.html">XML</a>
+        <a href="modal.html">Modal</a>
+        <a href="planificacion.html">Planes</a>
+        <a href="progreso.html">Progreso</a>
+        <a href="ajustes.html">Ajustes</a>
+        <button class="toggle-button" onclick="toggleDarkMode()">
+          <img src="./imagenes/dia.png" alt="Modo día" id="sun-icon">
+          <img src="./imagenes/noche.png" alt="Modo noche" id="moon-icon">
+        </button>
       </nav>
       </header>
-      <main>
-        <h1>Ejercicio</h1>
+      <main class="exercise-page">
+        <h1>&nbsp &nbsp &nbsp Ejercicio</h1>
 
         <form>
             <div class="form-group">
@@ -123,7 +79,7 @@ footer {
 
         if (value !== 'cuerpo') {
           const img = document.createElement('img');
-          img.src = `${value}.png`;
+          img.src = `./imagenes/${value}.png`;
           img.alt = `Imagen de ${value}`;
           container.appendChild(img);
 
@@ -136,7 +92,7 @@ footer {
           }
         } else {
           const img = document.createElement('img');
-          img.src = 'download.png';
+          img.src = './imagenes/download.png';
           img.alt = 'Imagen de cuerpo';
           container.appendChild(img);
         }
@@ -147,6 +103,11 @@ footer {
       // Esto inicializa la lista y la imagen en función del valor seleccionado por defecto
       handleMuscleChange({ target: select });
     </script>
+
+
+
+<script defer src="./js/scripts.js"></script>
+<script defer src="./js/ajustes.js"></script>
 
 </body>
 </html>

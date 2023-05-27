@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Control de Peso</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+        
+    </head>
+    <body>
+        <header>
+            <nav>
+              <span id="userNameDisplay" style="position:absolute; top:0; left:0;"></span>
+              <a href="index.html">Juego y mas informacion</a>
+              <a href="inicio.html">Inicio</a>
+              <a href="xml.html">XML</a>
+              <a href="modal.html">Modal</a>
+              <a href="planificacion.html">Planes</a>
+              <a href="progreso.html">Progreso</a>
+              <a href="ajustes.html">Ajustes</a>
+              <button class="toggle-button" onclick="toggleDarkMode()">
+                <img src="./imagenes/dia.png" alt="Modo día" id="sun-icon">
+                <img src="./imagenes/noche.png" alt="Modo noche" id="moon-icon">
+              </button>
+            </nav>
+            </header>
+        <main>
+        <h1>Control de Peso</h1>
+
+        <div id="inputArea">
+            <label for="peso">Introduce tu peso (kg):</label>
+            <input type="number" id="peso" name="peso" min="1">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha">
+            <label for="objetivo">Peso objetivo (kg):</label>
+            <input type="number" id="objetivo" name="objetivo" min="1">
+            <button onclick="anadirDato()">Añadir Peso</button>
+        </div>
+
+        <canvas id="chart"></canvas>
+    </main>
+
+
+
+        <script>
+            var fechas = [];
+            var pesos = [];
+            var objetivo = [];
+            var objetivoValor;
+            var ctx = document.getElementById('chart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: fechas,
+                    datasets: [{
+                        label: 'Peso Actual',
+                        data: pesos,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Peso Objetivo',
+                        data: objetivo,
+                        fill: false,
+                        borderColor: 'rgb(255, 99, 132)',
+                        tension: 0.1
+                    }]
+                }
+            });
+
+            function anadirDato() {
+                var peso = document.getElementById('peso').value;
+                var fecha = document.getElementById('fecha').value;
+                objetivoValor = document.getElementById('objetivo').value;
+                if(peso && fecha && objetivoValor) {
+                    fechas.push(fecha);
+                    pesos.push(peso);
+                    objetivo = Array(pesos.length).fill(objetivoValor);
+                    chart.data.datasets[1].data = objetivo;
+                    chart.update();
+                }
+            }
+        </script>
+        <script src="./js/scripts.js"></script>
+        <script defer src="./js/ajustes.js"></script>
+    </body>
+</html>

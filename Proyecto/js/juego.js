@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Alejandro López Sepúlveda, 1 DAW \nLenguaje de Marcas 3º Trimestre \Preparacion del proyecto final\nPagina de Alimentacion y Ejercicio");
     }
 
-    showAlert();
-
     const infoBtn = document.getElementById("info-btn");
     infoBtn.addEventListener("click", showAlert);
 

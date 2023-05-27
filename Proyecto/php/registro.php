@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 // Configuración de conexión a la base de datos
 $servername = "localhost:3306";
 $username = "root";
-$password = "tAHFUlUA1@";
+$password = "admin1234qslia.xjl";
 $dbname = "proyecto1db";
 
 // Conexión a la base de datos

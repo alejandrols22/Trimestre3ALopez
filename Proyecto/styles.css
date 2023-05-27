@@ -1,26 +1,149 @@
+
+#content {
+  margin-top: 1000px; /* Ajusta este valor según sea necesario */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-html, body {
-  min-height: 100%; /* Asegurar que el body tenga una altura mínima del 100% de la ventana gráfica */
+
+:root {
+  --color-fuente-dark: #ffffff;
+  --color-fondo-dark: #000000;
+  --color-fondo2-dark: #181818;
+  --tam-fuente-dark: 1.0;
 }
 
-body {
+html, body {
+  min-height: 100%;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-image: url("intro-background.jpg"); /* Mover la imagen de fondo al body */
-  background-position: center;
+  color: #000000;
+  background-image: linear-gradient(to bottom, #0b6dff, #0d1dff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex; /* Establecer el body como un contenedor flex */
-  flex-direction: column; /* Distribuir los hijos del body en una columna */
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  
+  
+}
+.plan {
+  text-align: center;
+}
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
+.toggle-button img {
+  width: 25px;
+  height: 25px;
+}
+
+body.dark-mode {
+  background-image: linear-gradient(to bottom, var(--color-fondo-dark), var(--color-fondo-dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--color-fuente-dark) !important;
+  font-size: var(--tam-fuente-dark);
+}
+
+
+body.dark-mode h1,
+body.dark-mode p,
+body.dark-mode a {
+  color: #FFFFFF; /* Cambia el color de la fuente a blanco en modo oscuro */
+  color: var(--color-fuente-dark) !important;
+}
+body.dark-mode {
+  color: #FFFFFF;
+  background-color: #000000;
+}
+body.dark-mode p {
+  font-size: var(--tam-fuente-dark)em;
+}
+nav.dark-mode, nav.dark-mode a {
+  background-color: #181818; /* Elige el color que prefieras para el modo oscuro */
+  color: #ffffff !important; /* Esto hace que el color de la fuente sea blanco */
+}
+
+body.dark-mode {
+  color: var(--color-fuente-dark);
+  background-color: var(--color-fondo-dark);
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: var(--color-fondo2-dark);;
+}
+
+body.dark-mode button {
+  background-color: #555;
+  color: #fff;
+}
+
+body.dark-mode {
+  background-color: #242424; /* Elige el color que prefieras para el modo oscuro */
+  color: #ffffff; /* Cambiamos el color de la fuente a blanco para que sea legible en el fondo oscuro */
+}
+
+/* También puedes cambiar el color de fondo de otros elementos, como el header y footer */
+header.dark-mode, footer.dark-mode {
+  background-color: #181818; /* Elige el color que prefieras para el modo oscuro */
+  color: #ffffff;
+  
+}
+
+body.dark-mode.tam-fuente-pequeno {
+  font-size: 0.8em;
+}
+body.dark-mode.tam-fuente-mediano {
+  font-size: 1.0em;
+}
+
+body.dark-mode.tam-fuente-grande {
+  font-size: 1.4em;
+}
+
+
+
+
+@media (max-width: 1680px) and (max-height: 1050px) {
+  .exercise-page {
+    margin-top: 300px; /* Ajusta este valor según sea necesario */
+  }
+}
+
+.modal-content {
+  background-color: gray;
+}
+
+
 header {
-  background-color: #f1f1f1;
+  background-color: var(--color-fondo2-dark);
   padding: 20px;
+  background-color: #f1f1f1;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav {
@@ -32,25 +155,38 @@ nav a {
   text-decoration: none;
   color: #333;
   margin: 0 10px;
-  font-weight: bold; /* Nombres en negrita */
-  padding: 8px 12px; /* Agregar padding alrededor de los nombres */
-  border-radius: 5px; /* Filos redondeados */
-  transition: background-color 0.3s; /* Transición al cambiar el color de fondo */
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
 nav a:hover {
   color: #fff;
-  background-color: #a4adb4; /* Cambiar el color de fondo al pasar el mouse */
+  background-color: #a4adb4;
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.2);
 }
 
-main {
-  flex: 1; /* Hacer que el main ocupe todo el espacio disponible entre el header y el footer */
-  padding: 20px;
+.cta-button, .form-group button[type="submit"] {
+  display: inline-block;
+  background-color: #0076d6;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  box-shadow: 3px 3px 15px rgba(0,0,0,0.2);
 }
 
+.cta-button:hover, .form-group button[type="submit"]:hover {
+  background-color: #0058a3;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
 
 .intro {
-  min-height: 100%; /* Cambiar height a min-height */
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,32 +208,16 @@ main {
   margin-bottom: 30px;
 }
 
-.cta-button {
-  display: inline-block;
-  background-color: #0076d6;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 24px;
-  font-size: 1.1em;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #0058a3;
-}
-
 footer {
- 
-  bottom: 0; /* Alinear el footer al borde inferior de la pantalla */
-  width: 100%; /* Hacer que el footer tenga un ancho del 100% */
   padding: 20px;
   text-align: center;
- 
+  background-color: #f1f1f1;
+  box-shadow: 0px -2px 10px rgba(0,0,0,0.2);
 }
 
-.footer-text {
-  margin-top: 0; /* Eliminar el margen superior adicional */
+.musculo img {
+  max-width: 20%;
+  max-height: 20%;
 }
 
 #macro-chart-container {
@@ -141,60 +261,84 @@ form {
   border-radius: 4px;
   cursor: pointer;
 }
-#testimonio {
-  border-radius: 50%;
-  
-  object-fit: cover; /* para evitar que la imagen se deforme */
-}
 
-.testimonials-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.testimonial {
-  display: flex;
-  flex-wrap: wrap; /* Permitir que los elementos se ajusten en la misma línea */
+#inputArea {
   margin-bottom: 20px;
 }
 
-.testimonial-left {
-  flex-direction: row-reverse;
+#chart {
+  width: 80%;
+  height: 60%;
 }
 
-.testimonial-right {
-  flex-direction: row;
-  
+.container {
+  background-color: rgb(14, 30, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.testimonial img {
-  max-width: 200px;
-  max-height: 200px;
-  margin-right: 20px;
-  margin-bottom: 0; /* Eliminar el margen inferior de la imagen */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  width: 300px;
+  height: 300px;
 }
 
-.testimonial figcaption {
-  font-style: italic;
-  font-weight: bold; /* Agregar negrita al texto */
-  margin-bottom: 0; /* Eliminar el margen inferior del texto */
+.cell {
+  background-color: white;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
 }
 
-.musculo img {
-  max-width: 20% ;
-  max-height: 20% ;
+.cell:hover {
+  background-color: rgba(128, 128, 128, 0.3);
+}
 
+.reset-btn-container {
+  margin-top: 20px;
+}
+
+.info-btn-container {
+  position: absolute;
+  bottom: 20px;
 }
 
 
 
-
-
-
-
-
-
-
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.item img {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.item h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.item:hover img {
+  transform: scale(1.1);
+}
 
 
 

@@ -49,7 +49,7 @@ function populateFoodLists() {
     checkbox.value = protein;
     const label = document.createElement('label');
     label.htmlFor = `protein-${protein}`;
-    label.textContent = ` ${protein}`; // Agregamos un espacio antes del texto
+    label.textContent = ` ${protein}`; 
     proteinsSelect.appendChild(checkbox);
     proteinsSelect.appendChild(label);
   });
@@ -61,7 +61,7 @@ function populateFoodLists() {
     checkbox.value = carb;
     const label = document.createElement('label');
     label.htmlFor = `carb-${carb}`;
-    label.textContent = ` ${carb}`; // Agregamos un espacio antes del texto
+    label.textContent = ` ${carb}`; 
     carbsSelect.appendChild(checkbox);
     carbsSelect.appendChild(label);
   });
@@ -73,7 +73,7 @@ function populateFoodLists() {
     checkbox.value = fat;
     const label = document.createElement('label');
     label.htmlFor = `fat-${fat}`;
-    label.textContent = ` ${fat}`; // Agregamos un espacio antes del texto
+    label.textContent = ` ${fat}`; 
     fatsSelect.appendChild(checkbox);
     fatsSelect.appendChild(label);
   });
@@ -166,3 +166,59 @@ for (let i = 1; i <= meals; i++) {
 
 return dietPlan;
 }
+
+function changeImage() {
+  const image = document.querySelector('img');
+  if (image.src.endsWith('./imagenes/deltoides.png')) {
+    image.src = './imagenes/soleo.png';
+  } else {
+    image.src = './imagenes/pectoral.png';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+function toggleDarkMode() {
+  var body = document.querySelector('body');
+  body.classList.toggle('dark-mode');
+  var sunIcon = document.getElementById('sun-icon');
+  var moonIcon = document.getElementById('moon-icon');
+  if (body.classList.contains('dark-mode')) {
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+  } else {
+    sunIcon.style.display = 'block';
+    moonIcon.style.display = 'none';
+  }
+}
+
+window.onload = function() {
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.querySelector('body').classList.add('dark-mode');
+    document.getElementById('sun-icon').style.display = 'none';
+    document.getElementById('moon-icon').style.display = 'block';
+  }
+}
+
+function toggleDarkMode() {
+  var body = document.querySelector('body');
+  body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+  var sunIcon = document.getElementById('sun-icon');
+  var moonIcon = document.getElementById('moon-icon');
+  if (body.classList.contains('dark-mode')) {
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+  } else {
+    sunIcon.style.display = 'block';
+    moonIcon.style.display = 'none';
+  }
+}
+
