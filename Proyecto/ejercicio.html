@@ -58,50 +58,7 @@
       <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
     </footer>
     <script>
-      const select = document.querySelector('select[name="musculo"]');
-      const container = document.querySelector('#muscle-image-container');
-      const exerciseListContainer = document.querySelector('#exercise-list-container');
-      const exerciseList = document.querySelector('#exercise-list');
-
-      const exercises = {
-        biceps: ['Curl de bíceps', 'Curl martillo', 'Curl concentrado'],
-        cuadriceps: ['Sentadillas', 'Zancadas', 'Prensa de piernas'],
-        deltoides: ['Elevaciones laterales', 'Press militar', 'Elevaciones frontales'],
-        pectoral: ['Press de banca', 'Aperturas con mancuernas', 'Flexiones'],
-        soleo: ['Elevaciones de pantorrilla sentado', 'Elevaciones de pantorrilla de pie'],
-        tibial: ['Curl de tibial']
-      };
-
-      function handleMuscleChange(event) {
-        const value = event.target.value;
-        container.innerHTML = '';
-        exerciseList.innerHTML = '';
-
-        if (value !== 'cuerpo') {
-          const img = document.createElement('img');
-          img.src = `./imagenes/${value}.png`;
-          img.alt = `Imagen de ${value}`;
-          container.appendChild(img);
-
-          const exerciseItems = exercises[value];
-
-          for (const exercise of exerciseItems) {
-            const li = document.createElement('li');
-            li.textContent = exercise;
-            exerciseList.appendChild(li);
-          }
-        } else {
-          const img = document.createElement('img');
-          img.src = './imagenes/download.png';
-          img.alt = 'Imagen de cuerpo';
-          container.appendChild(img);
-        }
-      }
-
-      select.addEventListener('change', handleMuscleChange);
-
-      // Esto inicializa la lista y la imagen en función del valor seleccionado por defecto
-      handleMuscleChange({ target: select });
+      
     </script>
 
 

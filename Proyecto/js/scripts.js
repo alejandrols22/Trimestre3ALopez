@@ -38,25 +38,7 @@ var fechas = [];
         }
 
 
-        let xmlDoc, xslDoc;
-        fetch('cancionALopez.xml')
-            .then(response => response.text())
-            .then(data => {
-                let parser = new DOMParser();
-                xmlDoc = parser.parseFromString(data, "text/xml");
-                return fetch('cancionALopez.xsl');
-            })
-            .then(response => response.text())
-            .then(data => {
-                let parser = new DOMParser();
-                xslDoc = parser.parseFromString(data, "text/xml");
-    
-                let xsltProcessor = new XSLTProcessor();
-                xsltProcessor.importStylesheet(xslDoc);
-                let resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
-    
-                document.getElementById('content').appendChild(resultDocument);
-            });
+     
 
 const foodList = {
   proteins: [

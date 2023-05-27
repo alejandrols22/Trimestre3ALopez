@@ -4,10 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // Configuración de conexión a la base de datos
-$servername = "localhost:3306";
-$username = "root";
-$password = "admin1234qslia.xjl";
-$dbname = "proyecto1db";
+
 
 // Conexión a la base de datos
 $conn = mysqli_connect($servername, $username, $password, $dbname);

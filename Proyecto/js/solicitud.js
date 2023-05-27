@@ -20,7 +20,7 @@ exports.handler = async (event) => {
   const response = {
     statusCode: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*', // Asegúrate de cambiar esto a tu dominio real en producción
+      'Access-Control-Allow-Origin': '*', //
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(result)
