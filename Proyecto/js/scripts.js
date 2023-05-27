@@ -1,3 +1,63 @@
+var fechas = [];
+        var pesos = [];
+        var objetivo = [];
+        var objetivoValor;
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: fechas,
+                datasets: [{
+                    label: 'Peso Actual',
+                    data: pesos,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                },
+                {
+                    label: 'Peso Objetivo',
+                    data: objetivo,
+                    fill: false,
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }]
+            }
+        });
+
+        function anadirDato() {
+            var peso = document.getElementById('peso').value;
+            var fecha = document.getElementById('fecha').value;
+            objetivoValor = document.getElementById('objetivo').value;
+            if (peso && fecha && objetivoValor) {
+                fechas.push(fecha);
+                pesos.push(peso);
+                objetivo = Array(pesos.length).fill(objetivoValor);
+                chart.data.datasets[1].data = objetivo;
+                chart.update();
+            }
+        }
+
+
+        let xmlDoc, xslDoc;
+        fetch('cancionALopez.xml')
+            .then(response => response.text())
+            .then(data => {
+                let parser = new DOMParser();
+                xmlDoc = parser.parseFromString(data, "text/xml");
+                return fetch('cancionALopez.xsl');
+            })
+            .then(response => response.text())
+            .then(data => {
+                let parser = new DOMParser();
+                xslDoc = parser.parseFromString(data, "text/xml");
+    
+                let xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xslDoc);
+                let resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
+    
+                document.getElementById('content').appendChild(resultDocument);
+            });
+
 const foodList = {
   proteins: [
     'Pollo',
@@ -177,7 +237,50 @@ function changeImage() {
 }
 
 
+const select = document.querySelector('select[name="musculo"]');
+      const container = document.querySelector('#muscle-image-container');
+      const exerciseListContainer = document.querySelector('#exercise-list-container');
+      const exerciseList = document.querySelector('#exercise-list');
 
+      const exercises = {
+        biceps: ['Curl de bíceps', 'Curl martillo', 'Curl concentrado'],
+        cuadriceps: ['Sentadillas', 'Zancadas', 'Prensa de piernas'],
+        deltoides: ['Elevaciones laterales', 'Press militar', 'Elevaciones frontales'],
+        pectoral: ['Press de banca', 'Aperturas con mancuernas', 'Flexiones'],
+        soleo: ['Elevaciones de pantorrilla sentado', 'Elevaciones de pantorrilla de pie'],
+        tibial: ['Curl de tibial']
+      };
+
+      function handleMuscleChange(event) {
+        const value = event.target.value;
+        container.innerHTML = '';
+        exerciseList.innerHTML = '';
+
+        if (value !== 'cuerpo') {
+          const img = document.createElement('img');
+          img.src = `./imagenes/${value}.png`;
+          img.alt = `Imagen de ${value}`;
+          container.appendChild(img);
+
+          const exerciseItems = exercises[value];
+
+          for (const exercise of exerciseItems) {
+            const li = document.createElement('li');
+            li.textContent = exercise;
+            exerciseList.appendChild(li);
+          }
+        } else {
+          const img = document.createElement('img');
+          img.src = './imagenes/download.png';
+          img.alt = 'Imagen de cuerpo';
+          container.appendChild(img);
+        }
+      }
+
+      select.addEventListener('change', handleMuscleChange);
+
+      // Esto inicializa la lista y la imagen en función del valor seleccionado por defecto
+      handleMuscleChange({ target: select });
 
 
 
