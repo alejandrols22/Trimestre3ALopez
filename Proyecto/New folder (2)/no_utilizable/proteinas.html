@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alimentos ricos en proteínas en oferta</title>
+  <style>
+    /* Estilos */
+  </style>
+</head>
+<body>
+  <h1>Alimentos ricos en proteínas en oferta</h1>
+  <p>
+    Texto introductorio...
+  </p>
+  <ul id="productos">
+    <!-- Los productos en oferta se cargarán aquí mediante JavaScript -->
+  </ul>
+  <script>
+    const API_ENDPOINT = 'https://your-api-gateway-url.execute-api.region.amazonaws.com/prod/your-resource';
+
+    async function cargarProductos() {
+      const productosElement = document.getElementById('productos');
+      try {
+        const response = await fetch(API_ENDPOINT);
+        if (!response.ok) {
+          throw new Error('Error al cargar productos');
+        }
+        const productos = await response.json();
+        productos.forEach((producto) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = producto.DetailPageURL[0];
+          a.textContent = producto.ItemAttributes[0].Title[0];
+          a.target = '_blank';
+          li.appendChild(a);
+          productosElement.appendChild(li);
+        });
+      } catch (error) {
+        console.error(error);
+        productosElement.textContent = 'Error al cargar productos en oferta';
+      }
+    }
+
+    cargarProductos();
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+
+    <script>
+        function updateUserName() {
+            var userName = document.getElementById("userName").value;
+            document.getElementById("userNameDisplay").innerHTML = userName;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <span id="userNameDisplay" style="position:absolute; top:0; left:0;"></span>
+            <a href="index.html">Juego y mas informacion</a>
+            <a href="inicio.html">Inicio</a>
+            <a href="xml.html">XML</a>
+            <a href="modal.html">Modal</a>
+            <a href="planificacion.html">Planes</a>
+            <a href="progreso.html">Progreso</a>
+            <a href="ajustes.html">Ajustes</a>
+            <button class="toggle-button" onclick="toggleDarkMode()">
+                <img src="./imagenes/dia.png" alt="Modo día" id="sun-icon">
+                <img src="./imagenes/noche.png" alt="Modo noche" id="moon-icon">
+            </button>
+        </nav>
+    </header>
+
+    <h1>Configuración de la página en MODO OSCURO</h1>
+
+    <form id="ajustesForm">
+        <fieldset>
+            <legend>Personalizar la apariencia de la página en MODO OSCURO</legend>
+            
+            <label for="userName">Introduce tu nombre:</label>
+            <input type="text" id="userName" name="userName" onchange="updateUserName()" />
+            <br>
+            
+            <label for="colorElegido">Elija un color de fuente:</label>
+            <input type="color" id="colorElegido" name="colorElegido" />
+            <br>
+            <label for="colorBgElegido">Elija un color de fondo:</label>
+            <input type="color" id="colorBgElegido" name="colorBgElegido" />
+            <br>
+            <label for="colorBgElegido">Elija un color del header:</label>
+            <input type="color" id="colorBg2Elegido" name="colorBg2Elegido" />
+            <br>
+            <label for="tamFuente">Elija el tamaño de la fuente:</label>
+            <select id="tamFuente" name="tamFuente">
+                <option value="0.8">Pequeño</option>
+                <option value="1.0">Mediano</option>
+                <option value="1.4">Grande</option>
+            </select>
+        </fieldset>
+
+        <button type="button" onclick="aplicarCambios()">APLICAR</button>
+    </form>
+    
+    <p id="mensaje"></p>
+
+    <footer>
+      <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="./js/ajustes.js"></script>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

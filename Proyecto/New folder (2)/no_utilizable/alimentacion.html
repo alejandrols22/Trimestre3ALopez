@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <style>
+		.container {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			margin-top: 50px;
+		}
+		.item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			position: relative;
+		}
+		.item img {
+			width: 200px;
+			height: 200px;
+			cursor: pointer;
+			transition: transform 0.2s;
+		}
+		.item h3 {
+			margin-top: 10px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.item:hover img {
+			transform: scale(1.1);
+		}
+	</style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Juego</a>
+            <a href="masinformacion.html">Mas informacion</a>
+            <a href="inicio.html">Inicio</a>
+            <a href="alimentacion.html">Alimentación</a>
+            <a href="ejercicio.html">Planes de ejercicio</a>
+            <a href="plan.html">Planes de dieta</a>
+            <a href="testimonios.html">Testimonios</a>
+            <a href="acerca.html">Acerca de nosotros</a>
+            <a href="contacto.html">Acceso</a>
+            <button class="toggle-button" onclick="toggleDarkMode()">
+                <img src="dia.png" alt="Modo día" id="sun-icon">
+                <img src="noche.png" alt="Modo noche" id="moon-icon">
+              </button>
+          </nav>
+    </header>
+    <div class="container">
+        <div class="item">
+		    <a href="proteinas.html"><img src="proteinas.jpg"></a>
+            <h3>Nombre de la imagen 1</h3>
+        </div>
+        <div class="item">
+		    <a href="carbohidratos.html"><img src="carbohidratos.jpg"></a>
+		    
+            <h3>Nombre de la imagen 2</h3>
+        </div>
+        <div class="item">
+            <a href="grasas.html"><img src="grasas.jpg"></a>
+
+            <h3>Nombre de la imagen 3</h3>
+        </div>
+	</div>
+
+    <footer>
+        <p>&copy; 2023 Alimentación y Ejercicio. Todos los derechos reservados.</p>
+      </footer>
+</body>
+
+</html>

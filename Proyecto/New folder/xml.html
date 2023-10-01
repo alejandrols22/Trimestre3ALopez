@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cancionALopez.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    
+        <header>
+            <nav>
+              <span id="userNameDisplay" style="position:absolute; top:0; left:0;"></span>
+              <a href="index.html">Juego y mas informacion</a>
+              <a href="inicio.html">Inicio</a>
+              <a href="xml.html">XML</a>
+              <a href="modal.html">Modal</a>
+              <a href="planificacion.html">Planes</a>
+              <a href="progreso.html">Progreso</a>
+              <a href="ajustes.html">Ajustes</a>
+              <button class="toggle-button" onclick="toggleDarkMode()">
+                <img src="./imagenes/dia.png" alt="Modo día" id="sun-icon">
+                <img src="./imagenes/noche.png" alt="Modo noche" id="moon-icon">
+              </button>
+            </nav>
+            </header>
+    
+    <div id="content"></div>
+
+<script>
+    let xmlDoc, xslDoc;
+    fetch('cancionALopez.xml')
+        .then(response => response.text())
+        .then(data => {
+            let parser = new DOMParser();
+            xmlDoc = parser.parseFromString(data, "text/xml");
+            return fetch('cancionALopez.xsl');
+        })
+        .then(response => response.text())
+        .then(data => {
+            let parser = new DOMParser();
+            xslDoc = parser.parseFromString(data, "text/xml");
+
+            let xsltProcessor = new XSLTProcessor();
+            xsltProcessor.importStylesheet(xslDoc);
+            let resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
+
+            document.getElementById('content').appendChild(resultDocument);
+        });
+</script>
+
+<script defer src="./js/scripts.js"></script>
+<script defer src="./js/ajustes.js"></script>
+</body>
+</html>
